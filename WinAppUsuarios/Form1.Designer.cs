@@ -32,7 +32,11 @@ namespace WinAppUsuarios
             this.label1 = new System.Windows.Forms.Label();
             this.DataGridUsuarios = new System.Windows.Forms.DataGridView();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.MenOpciones = new System.Windows.Forms.MenuStrip();
+            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuarios)).BeginInit();
+            this.MenOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -40,7 +44,7 @@ namespace WinAppUsuarios
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 31);
             this.label1.TabIndex = 1;
@@ -74,19 +78,48 @@ namespace WinAppUsuarios
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // MenOpciones
+            // 
+            this.MenOpciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opcionesToolStripMenuItem});
+            this.MenOpciones.Location = new System.Drawing.Point(0, 0);
+            this.MenOpciones.Name = "MenOpciones";
+            this.MenOpciones.Size = new System.Drawing.Size(802, 24);
+            this.MenOpciones.TabIndex = 16;
+            // 
+            // opcionesToolStripMenuItem
+            // 
+            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.LogToolStripMenuItem});
+            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
+            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.opcionesToolStripMenuItem.Text = "Opciones";
+            // 
+            // LogToolStripMenuItem
+            // 
+            this.LogToolStripMenuItem.Name = "LogToolStripMenuItem";
+            this.LogToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LogToolStripMenuItem.Text = "Log";
+            this.LogToolStripMenuItem.Click += new System.EventHandler(this.LogToolStripMenuItem_Click_1);
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(800, 394);
+            this.ClientSize = new System.Drawing.Size(802, 394);
+            this.Controls.Add(this.MenOpciones);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.DataGridUsuarios);
             this.Controls.Add(this.label1);
+            this.MainMenuStrip = this.MenOpciones;
             this.Name = "Usuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Usuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGridUsuarios)).EndInit();
+            this.MenOpciones.ResumeLayout(false);
+            this.MenOpciones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,6 +130,9 @@ namespace WinAppUsuarios
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DataGridUsuarios;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.MenuStrip MenOpciones;
+        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem LogToolStripMenuItem;
     }
 }
 

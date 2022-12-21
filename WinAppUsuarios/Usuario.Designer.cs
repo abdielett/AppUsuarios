@@ -43,6 +43,7 @@ namespace WinAppUsuarios
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.LblID = new System.Windows.Forms.Label();
+            this.BotonNuevoTipoUsuario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -192,12 +193,27 @@ namespace WinAppUsuarios
             this.LblID.TabIndex = 14;
             this.LblID.Text = "ID:";
             // 
+            // BotonNuevoTipoUsuario
+            // 
+            this.BotonNuevoTipoUsuario.BackColor = System.Drawing.Color.Lime;
+            this.BotonNuevoTipoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BotonNuevoTipoUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BotonNuevoTipoUsuario.ForeColor = System.Drawing.Color.Black;
+            this.BotonNuevoTipoUsuario.Location = new System.Drawing.Point(313, 195);
+            this.BotonNuevoTipoUsuario.Name = "BotonNuevoTipoUsuario";
+            this.BotonNuevoTipoUsuario.Size = new System.Drawing.Size(69, 27);
+            this.BotonNuevoTipoUsuario.TabIndex = 15;
+            this.BotonNuevoTipoUsuario.Text = "Nuevo";
+            this.BotonNuevoTipoUsuario.UseVisualStyleBackColor = false;
+            this.BotonNuevoTipoUsuario.Click += new System.EventHandler(this.BotonNuevoTipoUsuario_Click);
+            // 
             // Usuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(320, 290);
+            this.ClientSize = new System.Drawing.Size(391, 290);
+            this.Controls.Add(this.BotonNuevoTipoUsuario);
             this.Controls.Add(this.LblID);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
@@ -213,7 +229,9 @@ namespace WinAppUsuarios
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Usuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
+            this.Load += new System.EventHandler(this.Usuario_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +253,6 @@ namespace WinAppUsuarios
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label LblID;
+        private System.Windows.Forms.Button BotonNuevoTipoUsuario;
     }
 }

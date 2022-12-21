@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiUsuarios.Models
+namespace WinAppUsuarios.Models
 {
-    public class LogModelo
+    public class Log
     {
         public int ID { get; set; }
         public string Mensaje { get; set; }

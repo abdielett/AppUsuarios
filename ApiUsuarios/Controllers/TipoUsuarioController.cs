@@ -74,6 +74,7 @@ namespace ApiUsuarios.Controllers
             {
                 Respuesta.Codigo = "400";
                 Respuesta.Mensaje = "Error al traer el Tipo de Usuario, revise Log para mas detalle";
+                LogController.GenerarLog(ex.Message);
                 Respuesta.Resultado = new List<TipoUsuarioModelo>();
             }
             return Respuesta;
@@ -88,6 +89,11 @@ namespace ApiUsuarios.Controllers
             {
                 using (AppUsuariosContext Context = new AppUsuariosContext())
                 {
+                    TipoUsuario UsuarioBuscar = Context.TipoUsuarios.Where(x => x.Nombre.ToUpper() == Value.Nombre.ToUpper()).FirstOrDefault();
+                    if (UsuarioBuscar != null) 
+                    {
+                        throw new UserFriendlyException("Ya existe un tipo usuario con el nombre de: " + Value.Nombre);
+                    }
                     TipoUsuario NuevoTipoUsuario = new TipoUsuario();
                     NuevoTipoUsuario.Nombre = Value.Nombre;
                     Context.Add(NuevoTipoUsuario);
@@ -103,6 +109,7 @@ namespace ApiUsuarios.Controllers
             {
                 Respuesta.Codigo = "400";
                 Respuesta.Mensaje = "Error al dar de alta el Tipo de Usuario, revise Log para mas detalle";
+                LogController.GenerarLog(ex.Message);
                 Respuesta.Resultado = new List<TipoUsuarioModelo>();
             }
             return Respuesta;
@@ -132,6 +139,7 @@ namespace ApiUsuarios.Controllers
             {
                 Respuesta.Codigo = "400";
                 Respuesta.Mensaje = "Error al modificar el Tipo de Usuario, revise Log para mas detalle";
+                LogController.GenerarLog(ex.Message);
                 Respuesta.Resultado = new List<TipoUsuarioModelo>();
             }
 

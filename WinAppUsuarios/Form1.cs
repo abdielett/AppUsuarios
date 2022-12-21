@@ -22,17 +22,17 @@ namespace WinAppUsuarios
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
-            this.DataGridUsuarios.Columns.Add("id", "ID");
-            this.DataGridUsuarios.Columns.Add("nombre", "Nombre");
-            this.DataGridUsuarios.Columns.Add("email", "Email");
-            this.DataGridUsuarios.Columns.Add("telefono", "Telefono");
-            this.DataGridUsuarios.Columns.Add("tipo", "Tipo");
+            this.DataGridUsuarios.Columns.Add("Id", "ID");
+            this.DataGridUsuarios.Columns.Add("Nombre", "Nombre");
+            this.DataGridUsuarios.Columns.Add("Email", "Email");
+            this.DataGridUsuarios.Columns.Add("Telefono", "Telefono");
+            this.DataGridUsuarios.Columns.Add("Tipo", "Tipo");
 
             DataGridViewButtonColumn Edt = new DataGridViewButtonColumn();
             DataGridUsuarios.Columns.Add(Edt);
             Edt.HeaderText = "Editar";
             Edt.Text = "Edt";
-            Edt.Name = "edt";
+            Edt.Name = "Edt";
             Edt.FlatStyle = FlatStyle.Flat;
             Edt.DefaultCellStyle.Font = new Font("Arial Rounded MT", 12);
             Edt.DefaultCellStyle.BackColor = Color.Orange;
@@ -40,14 +40,14 @@ namespace WinAppUsuarios
             Edt.DefaultCellStyle.SelectionForeColor = Color.Black;
             Edt.ToolTipText = "Edit this Item";
             Edt.UseColumnTextForButtonValue = true;
-            DataGridUsuarios.Columns["edt"].DefaultCellStyle.SelectionBackColor = Color.Orange;
-            DataGridUsuarios.Columns["edt"].DefaultCellStyle.SelectionForeColor = Color.Black;
+            DataGridUsuarios.Columns["Edt"].DefaultCellStyle.SelectionBackColor = Color.Orange;
+            DataGridUsuarios.Columns["Edt"].DefaultCellStyle.SelectionForeColor = Color.Black;
 
             DataGridViewButtonColumn Del = new DataGridViewButtonColumn();
             DataGridUsuarios.Columns.Add(Del);
             Del.HeaderText = "Eliminar";
             Del.Text = "x";
-            Del.Name = "del";
+            Del.Name = "Del";
             Del.FlatStyle = FlatStyle.Flat;
             Del.DefaultCellStyle.Font = new Font("Arial Rounded MT", 12);
             Del.DefaultCellStyle.BackColor = Color.Red;
@@ -55,12 +55,12 @@ namespace WinAppUsuarios
             Del.DefaultCellStyle.SelectionForeColor = Color.Black;
             Del.ToolTipText = "Delete this Item";
             Del.UseColumnTextForButtonValue = true;
-            DataGridUsuarios.Columns["del"].DefaultCellStyle.SelectionBackColor = Color.Red;
-            DataGridUsuarios.Columns["del"].DefaultCellStyle.SelectionForeColor = Color.Black;
-            cargarUsuarios();
+            DataGridUsuarios.Columns["Del"].DefaultCellStyle.SelectionBackColor = Color.Red;
+            DataGridUsuarios.Columns["Del"].DefaultCellStyle.SelectionForeColor = Color.Black;
+            CargarUsuarios();
         }
 
-        private void cargarUsuarios()
+        private void CargarUsuarios()
         {
             DataGridUsuarios.Rows.Clear();
             var RESTclient = new RestClient(Models.Util.Get_Server());
@@ -90,7 +90,7 @@ namespace WinAppUsuarios
         }
         private void dataGridUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == DataGridUsuarios.Columns["del"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == DataGridUsuarios.Columns["Del"].Index && e.RowIndex >= 0)
             {
                 foreach (DataGridViewRow row2 in DataGridUsuarios.SelectedRows)
                 {
@@ -104,29 +104,43 @@ namespace WinAppUsuarios
                         {
                             MessageBox.Show(Respuesta.Mensaje);
                         }
-                        cargarUsuarios();
+                        CargarUsuarios();
                     }
                    
                    
                 }
             }
-            if (e.ColumnIndex == DataGridUsuarios.Columns["edt"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == DataGridUsuarios.Columns["Edt"].Index && e.RowIndex >= 0)
             {
                 foreach (DataGridViewRow row2 in DataGridUsuarios.SelectedRows)
                 {
 
                     Usuario usuario = new Usuario(Convert.ToInt32(row2.Cells[0].Value.ToString()));
                     usuario.ShowDialog();
-                    cargarUsuarios();
+                    CargarUsuarios();
                 }
             }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Usuario usuario = new Usuario(0);
-            usuario.ShowDialog();
-            cargarUsuarios();
+            Usuario Usuario = new Usuario(0);
+            Usuario.ShowDialog();
+            CargarUsuarios();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+       
+
+        private void LogToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Log Logs = new Log();
+            Logs.ShowDialog();
+
         }
     }
 }

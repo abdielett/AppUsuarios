@@ -115,5 +115,22 @@ namespace WinAppUsuarios
         {
             Close();
         }
+
+        private void Usuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BotonNuevoTipoUsuario_Click(object sender, EventArgs e)
+        {
+            TipoUsuario NuevoTipoUsuario = new TipoUsuario();
+            NuevoTipoUsuario.ShowDialog();
+            if (NuevoTipoUsuario.Id > 0) 
+            {
+                Models.TipoUsuario NuevoTipo = NuevoTipoUsuario.Get_TipoUsuarioGenerado;
+                ComboTipoUsuario.Items.Add(NuevoTipo.Nombre);
+                ComboTipoUsuario.SelectedIndex = NuevoTipo.ID;
+            }
+        }
     }
 }

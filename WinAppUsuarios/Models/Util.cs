@@ -10,7 +10,7 @@ namespace WinAppUsuarios.Models
     {
         public static string Get_Server() 
         { 
-            return "https://localhost:44361";
+            return "http://dev.outputcc.com/apiusuarios";
         }
     }
 }
